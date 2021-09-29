@@ -1,16 +1,11 @@
 # 2020 Homework 1
 
-1. Write a script called `download_count.sh` which does the following.
-   * Download the data file [https://ftp.ncbi.nlm.nih.gov/pub/UniVec/UniVec_Core](https://ftp.ncbi.nlm.nih.gov/pub/UniVec/UniVec_Core) from NCBI
-   * Print out the count of the number of FASTA format sequences in this file - see [Wikipedia FASTA format](https://en.wikipedia.org/wiki/FASTA_format) - each record starts with a `>`
-
-2. Write a script called `summary_exons.sh` which summarizes the total length of exons in the file [data/rice_random_exons.bed](https://raw.githubusercontent.com/biodataprog/GEN220_data/main/data/rice_random_exons.bed). These data are in the BED file format. The columns are "Chromosome", "Start position", "Stop position". The length of a feature (or exon in this case) is computed by doing the computation: STOP - START
-   * read in the file
-   * use a loop structure to read each line
-   * add up the length of each exon by summing this into a variable
-   * Print out the total length of exon features at the end.
-   * You do not need to save this for each chromosome, just print out the total length for this example - however if this is too easy for you, go ahead and make a more sophisticated report which presents, per chromosome, the total length of exons as well as the total number of exons, and the average length of exons.
-
-3. Write a script called `strand_gene_count.sh` to calculate the number of genes that are on the positive (+) and negative (-) strand in the file.
-
-  * [https://fungidb.org/common/downloads/release-48/ScerevisiaeS288c/gff/data/FungiDB-48_ScerevisiaeS288c.gff](https://fungidb.org/common/downloads/release-48/ScerevisiaeS288c/gff/data/FungiDB-48_ScerevisiaeS288c.gff)
+1. Write a shell script called `count_fires.sh` which does all of the following.
+   * Download a comma delimited datasets from data.gov file which are listing of fires in several decades. (hint use `curl`)
+    ** [1990s](https://gis.data.cnra.ca.gov/datasets/653647b20bc74480b335e31d6d81a52f_4.csv) https://catalog.data.gov/dataset/1990s-b2103
+    ** [2000s](https://gis.data.cnra.ca.gov/datasets/653647b20bc74480b335e31d6d81a52f_12.csv) - https://catalog.data.gov/dataset/2000s
+    ** [2010s](https://gis.data.cnra.ca.gov/datasets/653647b20bc74480b335e31d6d81a52f_11.csv) - https://catalog.data.gov/dataset/2010s
+   * Print out the number of fires for each decade (hint use `wc`)
+   * Print out the number of fires in each year (hint use `cut` and `uniq`)
+   * Print out the largest fire (hint use `sort`) - use the `GIS_ACRES` column
+   * Print out the total acerage burned in each year.
